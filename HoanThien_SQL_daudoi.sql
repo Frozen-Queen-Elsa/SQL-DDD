@@ -1,371 +1,4 @@
-﻿--open csdl db_DDD
-USE db_DDD 
-GO	
-
---Truy van du lieu bang sinh vien
-SELECT * FROM tbSInhVien
-GO
-
---Thêm 1 số sinh viên vô database
-INSERT	dbo.tbSinhVien
-(
-    sv_id,
-    sv_name,
-    namsinh,
-    gioitinh,
-    email
-)
-VALUES
-(   'sv1001',   -- sv_id - varchar(10)
-    N'Phương Huyen',  -- sv_name - nvarchar(30)
-    1986,    -- namsinh - int
-    NULL, -- gioitinh - bit
-    'huyenbaby@gmail.com'    -- email - varchar(50)
-)
-GO
-    
-INSERT dbo.tbSinhVien
-(
-	sv_id,
-	sv_name,
-	namsinh,
-	gioitinh,
-	email
-)
-VALUES
-(   'sv1002',   -- sv_id - varchar(10)
-	N'Kim Thơ',  -- sv_name - nvarchar(30)
-	2006,    -- namsinh - int
-	NULL, -- gioitinh - bit
-	'thochi@hotmail.com'    -- email - varchar(50)
-	),
-	(   'sv1003',   -- sv_id - varchar(10)
-	N'Quốc Bảo',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	0, -- gioitinh - bit
-	'baobao@hotmail.com'    -- email - varchar(50)
-	),
-	(   'sv1004',   -- sv_id - varchar(10)
-	N'Anh Đức',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	1, -- gioitinh - bit
-	'anhduc@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1005',   -- sv_id - varchar(10)
-	N'Trúc Quỳnh',  -- sv_name - nvarchar(30)
-	2006,    -- namsinh - int
-	0, -- gioitinh - bit
-	'quynh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1006',   -- sv_id - varchar(10)
-	N'Thiên Kim',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	0, -- gioitinh - bit
-	'thienkim@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1007',   -- sv_id - varchar(10)
-	N'Thanh Ân',  -- sv_name - nvarchar(30)
-	1990,    -- namsinh - int
-	1, -- gioitinh - bit
-	'an@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1008',   -- sv_id - varchar(10)
-	N'Thái Bình',  -- sv_name - nvarchar(30)
-	2001,    -- namsinh - int
-	1, -- gioitinh - bit
-	'thaibinh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1009',   -- sv_id - varchar(10)
-	N'Minh Thư',  -- sv_name - nvarchar(30)
-	2001,    -- namsinh - int
-	0, -- gioitinh - bit
-	'thuem@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1010',   -- sv_id - varchar(10)
-	N'Trần Hòa',  -- sv_name - nvarchar(30)
-	2008,    -- namsinh - int
-	1, -- gioitinh - bit
-	'hoa@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1011',   -- sv_id - varchar(10)
-	N'Hoang Anh',  -- sv_name - nvarchar(30)
-	1990,    -- namsinh - int
-	1, -- gioitinh - bit
-	'hoanganh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1012',   -- sv_id - varchar(10)
-	N'Đình Huy',  -- sv_name - nvarchar(30)
-	1999,    -- namsinh - int
-	1, -- gioitinh - bit
-	'huy@gmail.com'    -- email - varchar(50)
-)
-go
-
---Thêm dữ liệu vọ bảng môn học
-INSERT dbo.tbMonHoc
-(
-    mh_id,
-    ten_mh,
-    sotiet,
-    hocphi
-)
-VALUES
-(   'LBEP',  -- mh_id - varchar(5)
-    N'Logic Buiding Elementary Programming', -- ten_mh - nvarchar(50)
-    38,   -- sotiet - tinyint
-    200    -- hocphi - int
-),
-(   'BNGW',  -- mh_id - varchar(5)
-    N'Buiding Next Generation Website', -- ten_mh - nvarchar(50)
-    40,   -- sotiet - tinyint
-    250    -- hocphi - int
-),
-(   'BSJ',  -- mh_id - varchar(5)
-    N'Boostrap Jquery', -- ten_mh - nvarchar(50)
-    16,   -- sotiet - tinyint
-    100    -- hocphi - int
-),
-(   'P1',  -- mh_id - varchar(5)
-    N'eProject', -- ten_mh - nvarchar(50)
-    24,   -- sotiet - tinyint
-    250    -- hocphi - int
-),
-(   'DDD',  -- mh_id - varchar(5)
-    N'Database Design and Development', -- ten_mh - nvarchar(50)
-    12,   -- sotiet - tinyint
-    150    -- hocphi - int
-),
-(   'DM',  -- mh_id - varchar(5)
-    N'Database Management', -- ten_mh - nvarchar(50)
-    40,   -- sotiet - tinyint
-    350    -- hocphi - int
-)
-GO
-
---Truy vấn bảng sinh viên đăng ký môn học 
-SELECT * FROM dbo.SV_MH
-GO
-
---Thêm cơ sở dữ liệu cho sinh viên dk môn học
-INSERT	dbo.SV_MH
-(
-    sv_id,
-    mh_id
-)
-VALUES
-(   'sv0112', -- sv_id - varchar(10)
-    'LBEP'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'BNGW'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'BSJ'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'P1'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'DDD'  -- mh_id - varchar(5)
-)
-go
-
-INSERT	dbo.SV_MH
-(
-    sv_id,
-    mh_id
-)
---open csdl db_DDD
-USE db_DDD 
-GO	
-
---Truy van du lieu bang sinh vien
-SELECT * FROM tbSInhVien
-GO
-
---Thêm 1 số sinh viên vô database
-INSERT	dbo.tbSinhVien
-(
-    sv_id,
-    sv_name,
-    namsinh,
-    gioitinh,
-    email
-)
-VALUES
-(   'sv1001',   -- sv_id - varchar(10)
-    N'Phương Huyen',  -- sv_name - nvarchar(30)
-    1986,    -- namsinh - int
-    NULL, -- gioitinh - bit
-    'huyenbaby@gmail.com'    -- email - varchar(50)
-)
-GO
-    
-INSERT dbo.tbSinhVien
-(
-	sv_id,
-	sv_name,
-	namsinh,
-	gioitinh,
-	email
-)
-VALUES
-(   'sv1002',   -- sv_id - varchar(10)
-	N'Kim Thơ',  -- sv_name - nvarchar(30)
-	2006,    -- namsinh - int
-	NULL, -- gioitinh - bit
-	'thochi@hotmail.com'    -- email - varchar(50)
-	),
-	(   'sv1003',   -- sv_id - varchar(10)
-	N'Quốc Bảo',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	0, -- gioitinh - bit
-	'baobao@hotmail.com'    -- email - varchar(50)
-	),
-	(   'sv1004',   -- sv_id - varchar(10)
-	N'Anh Đức',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	1, -- gioitinh - bit
-	'anhduc@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1005',   -- sv_id - varchar(10)
-	N'Trúc Quỳnh',  -- sv_name - nvarchar(30)
-	2006,    -- namsinh - int
-	0, -- gioitinh - bit
-	'quynh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1006',   -- sv_id - varchar(10)
-	N'Thiên Kim',  -- sv_name - nvarchar(30)
-	2000,    -- namsinh - int
-	0, -- gioitinh - bit
-	'thienkim@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1007',   -- sv_id - varchar(10)
-	N'Thanh Ân',  -- sv_name - nvarchar(30)
-	1990,    -- namsinh - int
-	1, -- gioitinh - bit
-	'an@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1008',   -- sv_id - varchar(10)
-	N'Thái Bình',  -- sv_name - nvarchar(30)
-	2001,    -- namsinh - int
-	1, -- gioitinh - bit
-	'thaibinh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1009',   -- sv_id - varchar(10)
-	N'Minh Thư',  -- sv_name - nvarchar(30)
-	2001,    -- namsinh - int
-	0, -- gioitinh - bit
-	'thuem@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1010',   -- sv_id - varchar(10)
-	N'Trần Hòa',  -- sv_name - nvarchar(30)
-	2008,    -- namsinh - int
-	1, -- gioitinh - bit
-	'hoa@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1011',   -- sv_id - varchar(10)
-	N'Hoang Anh',  -- sv_name - nvarchar(30)
-	1990,    -- namsinh - int
-	1, -- gioitinh - bit
-	'hoanganh@gmail.com'    -- email - varchar(50)
-	),
-	(   'sv1012',   -- sv_id - varchar(10)
-	N'Đình Huy',  -- sv_name - nvarchar(30)
-	1999,    -- namsinh - int
-	1, -- gioitinh - bit
-	'huy@gmail.com'    -- email - varchar(50)
-)
-go
-
---Thêm dữ liệu vọ bảng môn học
-INSERT dbo.tbMonHoc
-(
-    mh_id,
-    ten_mh,
-    sotiet,
-    hocphi
-)
-VALUES
-(   'LBEP',  -- mh_id - varchar(5)
-    N'Logic Buiding Elementary Programming', -- ten_mh - nvarchar(50)
-    38,   -- sotiet - tinyint
-    200    -- hocphi - int
-),
-(   'BNGW',  -- mh_id - varchar(5)
-    N'Buiding Next Generation Website', -- ten_mh - nvarchar(50)
-    40,   -- sotiet - tinyint
-    250    -- hocphi - int
-),
-(   'BSJ',  -- mh_id - varchar(5)
-    N'Boostrap Jquery', -- ten_mh - nvarchar(50)
-    16,   -- sotiet - tinyint
-    100    -- hocphi - int
-),
-(   'P1',  -- mh_id - varchar(5)
-    N'eProject', -- ten_mh - nvarchar(50)
-    24,   -- sotiet - tinyint
-    250    -- hocphi - int
-),
-(   'DDD',  -- mh_id - varchar(5)
-    N'Database Design and Development', -- ten_mh - nvarchar(50)
-    12,   -- sotiet - tinyint
-    150    -- hocphi - int
-),
-(   'DM',  -- mh_id - varchar(5)
-    N'Database Management', -- ten_mh - nvarchar(50)
-    40,   -- sotiet - tinyint
-    350    -- hocphi - int
-)
-GO
-
---Truy vấn bảng sinh viên đăng ký môn học 
-SELECT * FROM dbo.SV_MH
-GO
-
---Thêm cơ sở dữ liệu cho sinh viên dk môn học
-INSERT	dbo.SV_MH
-(
-    sv_id,
-    mh_id
-)
-VALUES
-(   'sv0112', -- sv_id - varchar(10)
-    'LBEP'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'BNGW'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'BSJ'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'P1'  -- mh_id - varchar(5)
-),
-(   'sv0112', -- sv_id - varchar(10)
-    'DDD'  -- mh_id - varchar(5)
-)
-go
-
-INSERT	dbo.SV_MH
-(
-    sv_id,
-    mh_id
-)
-VALUES
-(   'sv1005', -- sv_id - varchar(10)
-    'LBEP'  -- mh_id - varchar(5)
-),
-(   'sv1005', -- sv_id - varchar(10)
-    'BNGW'  -- mh_id - varchar(5)
-),
-(   'sv1005', -- sv_id - varchar(10)
-    'BSJ'  -- mh_id - varchar(5)
-),
-(   'sv1005', -- sv_id - varchar(10)
-    'P1'  -- mh_id - varchar(5)
-)
-GO
+-- Ngay 2
 
 --open csdl db_DDD
 USE db_DDD 
@@ -511,6 +144,11 @@ VALUES
 )
 GO
 
+
+--Truy vấn bảng môn học
+select * from tbMonHoc
+go
+
 --Truy vấn bảng sinh viên đăng ký môn học 
 SELECT * FROM dbo.SV_MH
 GO
@@ -538,6 +176,48 @@ VALUES
     'DDD'  -- mh_id - varchar(5)
 )
 go
+	
+
+
+--Nhập thêm danh sách sinh viên đăng ký môn học
+INSERT	dbo.SV_MH
+(
+    sv_id,
+    mh_id
+)
+VALUES
+(   'sv1005', -- sv_id - varchar(10)
+    'LBEP'  -- mh_id - varchar(5)
+),
+(   'sv1005', -- sv_id - varchar(10)
+    'BSJ'  -- mh_id - varchar(5)
+),
+(   'sv1005', -- sv_id - varchar(10)
+    'DDD'  -- mh_id - varchar(5)
+)
+GO
+
+INSERT	dbo.SV_MH
+(
+    sv_id,
+    mh_id
+)
+VALUES
+(   'sv1000', -- sv_id - varchar(10)
+    'LBEP'  -- mh_id - varchar(5)
+),
+(   'sv1000', -- sv_id - varchar(10)
+    'BSJ'  -- mh_id - varchar(5)
+)
+,
+(   'sv1000', -- sv_id - varchar(10)
+    'P1'  -- mh_id - varchar(5)
+),
+(   'sv1000', -- sv_id - varchar(10)
+    'DDD'  -- mh_id - varchar(5)
+)
+GO
+
 
 INSERT	dbo.SV_MH
 (
